@@ -1,18 +1,27 @@
 <template>
   <div>
-    <ContadorView></ContadorView> />
+  </div>
+  <div>
+      <ContadorView/>
+  </div>
+  <div>
+ 
   </div>
 </template>
-
-<script>
-import ContadorView from "../src/views/ContadorView.vue";
-export default {
-  components: {
-    ContadorView,
-  },
-};
+ 
+<script >
+import ContadorView from './views/ContadorView.vue';
+export default{
+    components: {
+        ContadorView
+    }
+  }
+ 
+ 
+ 
+ 
 </script>
-
+ 
 <style>
-
+ 
 </style>
