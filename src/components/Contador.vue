@@ -65,10 +65,10 @@ export default {
     default: 99,
     validator(value){
       return value >10;
-    }
+    },
   },
-  mostrar: Boolean
- }
+  mostrar: Boolean,
+ },
  /* String, Number, Boolean, Array, Object, Date, Function, BigInt*/ 
 };
 </script>
