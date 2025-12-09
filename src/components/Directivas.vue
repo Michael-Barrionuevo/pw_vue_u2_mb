@@ -10,6 +10,19 @@
 
     <button v-on:click="imprimirNombre()">  Imprimir Nombre</button>
     <button v-on:click="agregarEstudiante()"> Agregar Estudiante</button>
+
+    <hr />
+
+    <label for="id_nombre_1">Nombre</label>
+    <input v-model="nombre" id="id_nombre_1" type="text" />
+
+    <label for="id_apellido_1">Apellido</label>
+    <input
+      v-on:keypress.enter="agregarEstudiante1"
+      v-model="apellido"
+      id="id_apellido_1"
+      type="text"
+    />
     
     <h1>{{ arreglo[0] }}</h1>
 
@@ -27,23 +40,22 @@
     <h2>Tabla</h2>
 
     <table border="1">
-        <thead>
+    <thead>
         <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
         </tr>
-    </thead>
-     <!--Al usar v-for con desestructuracion de datos siempre usar el nombre de las variables del objeto y no poner otras nombres-->
-    <tbody>
-        <tr v-for="{nombre,apellido} in arreglo" :key="nombre">
-
-            <th>{{ nombre }}</th>
-            <th>{{ apellido }}</th>
+      </thead>
+      <tbody>
+        <tr
+          v-show="nombre"
+          v-for="{ nombre, apellido } in arreglo"
+          :key="nombre"
+        >
+          <td>{{ nombre }}</td>
+          <td>{{ apellido }}</td>
         </tr>
-        
-       
-
-    </tbody>
+      </tbody>
 
     </table>
     
@@ -79,6 +91,24 @@ export default {
         this.arreglo.push(estu);
         this.limpiarFormulario();
     },
+    agregarEstudiante1(event) {
+      console.log("Evento");
+      const estu2 = {
+        nombre: this.nombre,
+        apellido: this.apellido,
+      };
+      if (event.charCode !== 13) {
+        return;
+      }
+      this.arreglo.push(estu2);
+      this.limpiarFormulario();
+      console.log("Presionó el ENTER");
+      console.log("Se agrega Estudiante 1");
+      console.log(event);
+      console.log(event.charCode);
+      console.log(event.keyCode);
+    },
+    
     limpiarFormulario(){
         this.nombre=null;
         this.apellido=null;
