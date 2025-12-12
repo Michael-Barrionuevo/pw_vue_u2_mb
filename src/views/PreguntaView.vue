@@ -26,4 +26,9 @@
 h2 {
   font-size: 50px;
 }
+
+body{
+  background: black;
+  color: black;
+}
 </style>
